@@ -54,7 +54,7 @@ con Git es su nombre de usuario GitHub, y la segunda variable es el correo elect
 que utilizó para crear su cuenta de GitHub:
 
 
-```{r, engine='bash', eval=FALSE}
+```
 git config --global user.name "myUserName"
 git config --global user.email myName@email.com
 ```
@@ -64,7 +64,7 @@ git config --global user.email myName@email.com
 
 Vamos a crear nuestro primer repositorio de Git. Primero tenemos que crear un directorio:
 
-```{r, engine='bash', eval=FALSE}
+```
 cd
 mkdir my-first-repo
 cd my-first-repo
@@ -72,7 +72,7 @@ cd my-first-repo
 
 "Repo" en este caso es solo una abreviatura de "repositorio". Para comenzar a rastrear archivos con Git en un directorio, ingresa `git init` en la línea de comandos:
 
-```{r, engine='bash', eval=FALSE}
+```
 git init
 ```
 
@@ -83,7 +83,7 @@ git init
 ¡Acaba de crear su primer repositorio! Ahora vamos a crear un archivo y a comenzar
 a rastrearlo
 
-```{r, engine='bash', eval=FALSE}
+```
 echo "Welcome to My First Repo" > readme.txt
 ```
 
@@ -91,7 +91,7 @@ Ahora que hemos creado un archivo en este repositorio de Git, usemos `git status
 ver qué está pasando en este repositorio. Usaremos `git status` continuamente
 a lo largo de este gist para obtener información sobre el estado de este repositorio de Git.
 
-```{r, engine='bash', eval=FALSE}
+```
 git status
 ```
 
@@ -112,14 +112,14 @@ Como puede ver, `readme.txt` se muestra como un archivo sin seguimiento. Para ha
 sepa que quiere rastrear este archivo, necesitamos usar `git add` con el nombre de
 el archivo que queremos rastrear. Comencemos rastreando `readme.txt`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git add readme.txt
 ```
 
 Git ahora sabe rastrear cualquier cambio a `readme.txt`. Veamos cómo el estado de
 el repositorio ha cambiado:
 
-```{r, engine='bash', eval=FALSE}
+```
 git status
 ```
 
@@ -140,7 +140,7 @@ ahora **staged**. Entre los paréntesis en el mensaje de arriba puede ver que
 `git status` nos da un consejo sobre cómo unstaged (o dejar de preparar) este archivo,
 lo cual podríamos hacer con `git rm --cached readme.txt`. Vamos a dejar de preparar este archivo solo para ver que pasa:
 
-```{r, engine='bash', eval=FALSE}
+```
 git rm --cached readme.txt
 ```
 
@@ -148,7 +148,7 @@ git rm --cached readme.txt
 ## rm 'readme.txt'
 ```
 
-```{r, engine='bash', eval=FALSE}
+```
 git status
 ```
 
@@ -168,7 +168,7 @@ Nuestro repositorio vuelve a la forma en que comenzó con `readme.txt` como un
 archivo sin preparar. Comencemos rastreando `readme.txt` nuevamente para poder pasar a
 características más importantes de Git.
 
-```{r, engine='bash', eval=FALSE}
+```
 git add readme.txt
 ```
 
@@ -179,7 +179,7 @@ en Git. Un commit registra el contenido de todos los archivos que están prepara
 Al hacer una confirmación en Git, necesitamos escribir un mensaje de confirmación que se especifica después de la etiqueta `-m`. El mensaje debe describir brevemente qué cambios has
 hecho desde el último commit.
 
-```{r, engine='bash', eval=FALSE}
+```
 git commit -m "added readme.txt"
 ```
 
@@ -194,7 +194,7 @@ cambios que tuvieron lugar desde el último commit. Como puede ver en el mensaje
 solo cambiamos un archivo, y solo cambiamos una línea en ese archivo. Corramos
 `git status` nuevamente para ver el estado de nuestro repositorio después de que hayamos hecho el primer commit:
 
-```{r, engine='bash', eval=FALSE}
+```
 git status
 ```
 
@@ -206,7 +206,7 @@ git status
 ¡Todos los cambios a los archivos en este repositorio han sido confirmados! Vamos a
 agregar algunos archivos más a este repositorio y confirmarlos.
 
-```{r, engine='bash', eval=FALSE}
+```
 touch file1.txt
 touch fil2.txt
 ls
@@ -221,14 +221,14 @@ ls
 Mientras estamos en eso, agreguemos una nueva línea de texto a `readme.txt`:
 
 
-```{r, engine='bash', eval=FALSE}
+```
 echo "Learning Git is going well so far." >> readme.txt
 ```
 
 Ahora que hemos agregado dos archivos más y hemos realizado cambios en un archivo, vamos a
 echar un vistazo al estado de este repositorio.
 
-```{r, engine='bash', eval=FALSE}
+```
 git status
 ```
 
@@ -256,7 +256,7 @@ cada archivo usando `git add`, o dado que todos los archivos en este repositorio
 consola. Sin embargo, si queremos hacer un seguimiento de todos los cambios en todos los archivos en
 nuestro directorio deberíamos usar el comando `git add -A`.
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git status
 ```
@@ -275,7 +275,7 @@ git status
 Ahora se están rastreando los cambios a todos los archivos en este repositorio.
 Finalmente, confirmemos estos cambios:
 
-```{r, engine='bash', eval=FALSE}
+```
 git commit -m "added two files"
 ```
 
@@ -290,7 +290,7 @@ git commit -m "added two files"
 de los nombres de mis archivos! Afortunadamente, podemos deshacer el commit más reciente con
 el comando `git reset --soft HEAD~`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git reset --soft HEAD~
 git status
 ```
@@ -310,7 +310,7 @@ Este repositorio ahora se encuentra exactamente en el mismo estado en el que est
 commit. Ahora podemos cambiar el nombre de `fil2.txt` a `file2.txt`, entonces veamos el
 estado del repositorio de nuevo.
 
-```{r, engine='bash', eval=FALSE}
+```
 mv fil2.txt file2.txt
 git status
 ```
@@ -341,7 +341,7 @@ Le dijimos previamente a Git que rastreara `fil2.txt`, y podemos ver que Git rec
 que el archivo ha sido eliminado. Podemos poner a Git al tanto de qué archivos
 debería estar siguiendo con `git add -A`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git status
 ```
@@ -359,7 +359,7 @@ git status
 
 ¡Finalmente tenemos los nombres de los archivos correctos! Ahora hagamos el commit correcto:
 
-```{r, engine='bash', eval=FALSE}
+```
 git commit -m "added two files"
 ```
 
@@ -401,7 +401,7 @@ Los comandos de Git tienen sus propios manuales 'man'. Puede acceder a ellos con
 `git help [nombre del comando]`. Por ejemplo, aquí está el comienzo de la página de ayuda
 para `git status`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git help status
 ```
 
@@ -427,7 +427,7 @@ con la tecla `Q`.
 
 Si desea ver una lista de sus commits de Git, ingrese `git log` en la consola:
 
-```{r, engine='bash', eval=FALSE}
+```
 git log
 ```
 
@@ -452,7 +452,7 @@ grabado, junto con un hash SHA-1 que identifica de manera única la confirmació
 Git también puede ayudar a mostrar las diferencias entre los cambios no registrados en sus archivos
 comparado con el último commit. Agreguemos una nueva línea de texto a `readme.txt`:
 
-```{r, engine='bash', eval=FALSE}
+```
 echo "The third line." >> readme.txt
 git diff readme.txt
 ```
@@ -471,7 +471,7 @@ git diff readme.txt
 Como puede ver, aparece un signo más al lado de la línea agregada. Ahora vamos a abrir
 este archivo en un editor de texto para que podamos eliminar la segunda línea.
 
-```{r, engine='bash', eval=FALSE}
+```
 nano readme.txt
 # Borrar la segunda línea
 git diff readme.txt
@@ -491,7 +491,7 @@ git diff readme.txt
 Aparece un signo menos al lado de la línea que eliminamos. Echemos un vistazo a la
 estado de nuestro directorio en este punto.
 
-```{r, engine='bash', eval=FALSE}
+```
 git status
 ```
 
@@ -513,7 +513,7 @@ usar `git checkout` para eliminar todos los cambios que hemos realizado en un ar
 para restaurar su contenido a lo que estaba presente en el último commit. Vamos a eliminar
 nuestros cambios para ver cómo funciona esto.
 
-```{r, engine='bash', eval=FALSE}
+```
 cat readme.txt
 ```
 
@@ -522,7 +522,7 @@ cat readme.txt
 ## I added a line.
 ```
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout readme.txt
 cat readme.txt
 ```
@@ -545,7 +545,7 @@ nunca deben ser rastreados. Cada línea de un archivo `.gitignore` debe especifi
 o un grupo de archivos que Git no debe rastrear. Hagamos un archivo `.gitignore`
 para asegurarnos de que nunca rastreamos los archivos de imagen en este repositorio:
 
-```{r, engine='bash', eval=FALSE}
+```
 touch toby.jpg
 git status
 ```
@@ -563,7 +563,7 @@ git status
 Ahora que hemos agregado una imagen a nuestro repositorio, agreguemos un archivo `.gitignore`
 para asegurarnos de que Git no rastree este tipo de archivos.
 
-```{r, engine='bash', eval=FALSE}
+```
 echo "*.jpg" > .gitignore
 git status
 ```
@@ -581,7 +581,7 @@ git status
 Ahora podemos ver que Git ha detectado el nuevo archivo `.gitignore`, pero no 
 ve `toby.jpg`. Vamos a agregar y confirmar nuestro archivo `.gitignore`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git commit -m "added gitignore"
 ```
@@ -594,7 +594,7 @@ git commit -m "added gitignore"
 
 Ahora si agregamos otro archivo `.jpg`, Git no verá el archivo:
 
-```{r, engine='bash', eval=FALSE}
+```
 touch bernie.jpg
 git status
 ```
@@ -604,7 +604,7 @@ git status
 ## nothing to commit, working tree clean
 ```
 
-```{r, engine='bash', eval=FALSE}
+```
 ls
 ```
 
@@ -643,7 +643,7 @@ luego Git puede ayudarle a fusionar elegantemente sus ramas y cambios juntos.
 
 Puede listar todas las ramas disponibles con el comando `git branch`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git branch
 ```
 
@@ -658,13 +658,13 @@ versión de trabajo del software que están escribiendo, mientras desarrollan ca
 Para agregar una rama también usaremos el comando `git branch`, seguido del nombre de
 la rama que queremos crear:
 
-```{r, engine='bash', eval=FALSE}
+```
 git branch my-new-feature
 ```
 
 Ahora ingresemos `git branch` nuevamente para confirmar que hemos creado la rama:
 
-```{r, engine='bash', eval=FALSE}
+```
 git branch
 ```
 
@@ -676,7 +676,7 @@ git branch
 Podemos hacer de `my-new-feature` la rama actual usando `git checkout` con el
 nombre del branch:
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout my-new-feature
 ```
 
@@ -684,7 +684,7 @@ git checkout my-new-feature
 ## Switched to branch 'my-new-feature'
 ```
 
-```{r, engine='bash', eval=FALSE}
+```
 git branch
 ```
 
@@ -697,7 +697,7 @@ Si observamos el `git status` también podemos ver que nos dirá en qué rama
 estamos:
 
 
-```{r, engine='bash', eval=FALSE}
+```
 git status
 ```
 
@@ -708,7 +708,7 @@ nothing to commit, working tree clean
 
 Podemos volver a la rama `master` usando `git checkout`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout master
 ```
 
@@ -716,7 +716,7 @@ git checkout master
 ## Switched to branch 'master'
 ```
 
-```{r, engine='bash', eval=FALSE}
+```
 git branch
 ```
 
@@ -728,7 +728,7 @@ git branch
 Ahora podemos eliminar una rama usando la etiqueta `-d` con `git branch` y el nombre
 de la rama que queremos eliminar:
 
-```{r, engine='bash', eval=FALSE}
+```
 git branch -d my-new-feature
 ```
 
@@ -736,7 +736,7 @@ git branch -d my-new-feature
 ## Deleted branch my-new-feature (was adef548).
 ```
 
-```{r, engine='bash', eval=FALSE}
+```
 git branch
 ```
 
@@ -750,7 +750,7 @@ tiempo usando el comando `git checkout -b` y el nombre de la nueva rama que quer
 crear:
 
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout -b update-readme
 ```
 
@@ -762,7 +762,7 @@ Ahora que hemos creado y cambiado a una nueva rama, hagamos algunos cambios en
 un archivo. Como podríamos estar esperando ahora, agregaremos una nueva línea para
 `readme.txt`:
 
-```{r, engine='bash', eval=FALSE}
+```
 echo "I added this line in the update-readme branch." >> readme.txt
 cat readme.txt
 ```
@@ -775,7 +775,7 @@ cat readme.txt
 
 Ahora que hemos agregado una nueva línea, confirmemos estos cambios:
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git commit -m "added a third line to readme.txt"
 ```
@@ -788,7 +788,7 @@ git commit -m "added a third line to readme.txt"
 Ahora que hemos hecho una confirmación en la rama `update-readme`, volvamos a la rama
 `master`, y luego echemos un vistazo a `readme.txt`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout master
 ```
 
@@ -799,7 +799,7 @@ git checkout master
 Ahora que estamos en la rama `master`, echemos un vistazo rápidamente a `readme.txt`:
 
 
-```{r, engine='bash', eval=FALSE}
+```
 cat readme.txt
 ```
 
@@ -813,7 +813,7 @@ se fue para siempre. Hemos confirmado el cambio en este archivo mientras estába
 `update-readme`, por lo que el archivo actualizado está en esa rama. Vamos a
 volver a esa rama solo para asegurarnos:
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout update-readme
 cat readme.txt
 ```
@@ -826,7 +826,7 @@ cat readme.txt
 
 ¡Y la tercera línea está de vuelta! Vamos a agregar y confirmar otra línea más mientras estamos en esta rama:
 
-```{r, engine='bash', eval=FALSE}
+```
 echo "It's sunny outside today." >> readme.txt
 git add -A
 git commit -m "added weather info"
@@ -851,7 +851,7 @@ Cuando se fusiona, la rama actual también se denomina rama **base**.
 Cambiemos a la rama `master` para que podamos combinar los cambios de la rama
 `update-readme`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout master
 ```
 
@@ -862,7 +862,7 @@ git checkout master
 Para combinar los cambios desde otra rama, necesitamos usar `git merge` y
 nombre de la rama:
 
-```{r, engine='bash', eval=FALSE}
+```
 git merge update-readme
 ```
 
@@ -873,7 +873,7 @@ git merge update-readme
 ##  1 file changed, 2 insertions(+)
 ```
 
-```{r, engine='bash', eval=FALSE}
+```
 cat readme.txt
 ```
 
@@ -893,7 +893,7 @@ diferentes ediciones a la misma línea de texto? Cuando esto ocurre, se llama
 Primero cambiaremos a la rama `update-readme`. Use `nano` para editar la última
 línea de `readme.txt`, luego confirme sus cambios:
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout update-readme
 nano readme.txt
 cat readme.txt
@@ -908,7 +908,7 @@ cat readme.txt
 
 Observe que cambiamos "summy" a "cloudy" en la última línea.
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git commit -m "changed sunny to cloudy"
 ```
@@ -916,13 +916,13 @@ git commit -m "changed sunny to cloudy"
 Ahora que nuestros cambios están confirmados en la rama `update-readme`, cambiemos
 a `master`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout master
 ```
 
 Cambiemos la misma línea de código usando `nano`:
 
-```{r, engine='bash', eval=FALSE}
+```
 nano readme.txt
 cat readme.txt
 ```
@@ -936,7 +936,7 @@ cat readme.txt
 
 Ahora confirmemos estos cambios:
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git commit -m "changed sunny to windy"
 ```
@@ -946,7 +946,7 @@ Ahora hemos creado dos commits que entran en conflicto directamente entre sí. S
 en la rama `master`, la última línea dice `It's windy outside today`. Vamos a
 mirar qué sucede cuando tratamos de combinar `update-readme` en` master`.
 
-```{r, engine='bash', eval=FALSE}
+```
 git merge update-readme
 ```
 
@@ -958,7 +958,7 @@ git merge update-readme
 
 ¡Wow, hay un conflicto! Vamos a verificar el estado del repositorio en este momento:
 
-```{r, engine='bash', eval=FALSE}
+```
 git status
 ```
 
@@ -981,7 +981,7 @@ a menudo ofrece sugerencias sobre qué pasos debe seguir. Git está
 indicando que ambas versiones de readme.txt han modificado el mismo texto. Vamos a
 echar un vistazo a `readme.txt` para ver qué está pasando allí:
 
-```{r, engine='bash', eval=FALSE}
+```
 cat readme.txt
 ```
 
@@ -1004,7 +1004,7 @@ representa la confirmación más reciente en la rama en que está actualmente
 `>>>>>>> update-readme` muestra la versión de la línea en la rama `update-readme`. Para resolver este conflicto, todo lo que tenemos que hacer es abrir `readme.txt`
 con `nano` para poder eliminar las líneas de las que queremos deshacernos. En este caso, vamos a mantener la versión "cloudy".
 
-```{r, engine='bash', eval=FALSE}
+```
 nano readme.txt
 cat readme.txt
 ```
@@ -1018,7 +1018,7 @@ cat readme.txt
 
 Ahora podemos comprometer la resolución de este conflicto.
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git commit -m "resolved conflict"
 ```
@@ -1061,14 +1061,14 @@ con nuestros amigos y colegas. Podemos ver a qué repositorios remotos está con
 repositorio local con el comando `git remote` mientras tenemos nuestro
 directorio de trabajo establecido en `my-first-repo`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git remote
 ```
 
 No se imprime nada en la consola ya que aún no ha configurado ningún control remoto aún.
 Ahora agreguemos su nuevo repositorio de GitHub como un control remoto en su repositorio local:
 
-```{r, engine='bash', eval=FALSE}
+```
 git remote add origin https://github.com/seankross/my-first-repo.git
 ```
 
@@ -1081,7 +1081,7 @@ Más adelante explicaremos por qué "origen" es el nombre que elegimos para este
 Vamos a ejecutar `git remote` nuevamente para confirmar que agregamos el control remoto` origin`
 exitosamente:
 
-```{r, engine='bash', eval=FALSE}
+```
 git remote
 ```
 
@@ -1098,7 +1098,7 @@ repositorio así que no tendremos que proporcionar su nombre cada vez que queram
 con eso. Ingrese el siguiente comando modificado para que esté usando su
 nombre de usuario de GitHub:
 
-```{r, engine='bash', eval=FALSE}
+```
 git push -u origin master
 ```
 
@@ -1134,7 +1134,7 @@ GitHub. Vamos a crear un archivo `README.md` para nuestro repositorio. Primero d
 el archivo Readme de texto sin formato que ya tenemos:
 
 
-```{r, engine='bash', eval=FALSE}
+```
 rm readme.txt
 ```
 
@@ -1171,13 +1171,13 @@ caracteristicas de Markdown. Copie el texto sin formato, a continuación, cree u
 
     ![This is an image.](https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 
-```{r, engine='bash', eval=FALSE}
+```
 nano README.md
 ```
 
 Ahora agreguemos nuestros cambios, realicemos una confirmación e impulsemos esos cambios en nuestro repositorio remoto:
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git commit -m "added README.md"
 git push
@@ -1229,7 +1229,7 @@ Como no puedo garantizarle que tenga un colaborador, le mostraré cómo abrir
 un pull request en su propio repositorio. Primero en su repositorio local `my-first-repo` 
 cambiemos a la rama `update-readme`.
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout update-readme
 ```
 
@@ -1239,7 +1239,7 @@ git checkout update-readme
 
 Echemos un vistazo a lo que está actualmente en esta rama:
 
-```{r, engine='bash', eval=FALSE}
+```
 ls
 ```
 
@@ -1253,7 +1253,7 @@ ls
 
 Parece que no hemos actualizado esta rama para estar al día con la rama `master`. Podemos hacer esto fácilmente al fusionarnos en la rama `master`.
 
-```{r, engine='bash', eval=FALSE}
+```
 git merge master
 ```
 
@@ -1272,7 +1272,7 @@ directorio para que pueda hacer un pequeño proyecto de Markdown personalizado. 
 borremos todos los archivos en este directorio que realmente no necesitamos,
 es decir todo excepto `README.md`.
 
-```{r, engine='bash', eval=FALSE}
+```
 rm *.txt
 rm *.jpg
 ls
@@ -1318,7 +1318,7 @@ The best way to get in touch with me is [on Twitter](https://twitter.com/seankro
 Una vez que haya escrito algunas cosas divertidas sobre usted, agregue sus cambios y
 haga un nuevo commit.
 
-```{r, engine='bash', eval=FALSE}
+```
 git add -A
 git commit -m "made readme more personal"
 ```
@@ -1326,7 +1326,7 @@ git commit -m "made readme more personal"
 Al igual que un repositorio local de Git, los repositorios remotos en GitHub pueden tener múltiples
 ramas. Llevemos esta confirmación a la rama `update-readme` en GitHub mediante un push:
 
-```{r, engine='bash', eval=FALSE}
+```
 git push origin update-readme
 ```
 
@@ -1399,7 +1399,7 @@ como el directorio de trabajo actual.
 
 Primero cambiemos a la rama `master`.
 
-```{r, engine='bash', eval=FALSE}
+```
 git checkout master
 ```
 
@@ -1407,7 +1407,7 @@ Ahora actualicemos nuestra rama principal local con los commits que se han fusio
 en la rama principal en nuestro repositorio remoto. Podemos lograr esto con
 el comando `git pull`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git pull
 ```
 
@@ -1490,7 +1490,7 @@ Haga clic en el pequeño icono del portapapeles que copiará la URL de Git. Ahor
 la terminal y cambie su directorio de trabajo a su directorio de inicio.
 
 
-```{r, engine='bash', eval=FALSE}
+```
 cd
 pwd
 ```
@@ -1502,7 +1502,7 @@ pwd
 Ahora clonémos el repositorio. Escriba `git clone` en la terminal y luego
 pegue en la URL de Git lo que copiamos de GitHub:
 
-```{r, engine='bash', eval=FALSE}
+```
 git clone https://github.com/[your-github-username]/the-unix-workbench.git
 ```
 
@@ -1517,7 +1517,7 @@ git clone https://github.com/[your-github-username]/the-unix-workbench.git
 
 Ahora `cd` en su repositorio clonado.
 
-```{r, engine='bash', eval=FALSE}
+```
 cd the-unix-workbench
 ```
 
@@ -1526,7 +1526,7 @@ antes, la clonación tiene la ventaja de hacer un seguimiento del repositorio re
 debería estar asociado con el repositorio local. Probemos esto ingresando
 `git remote` con la etiqueta `-v`:
 
-```{r, engine='bash', eval=FALSE}
+```
 git remote -v
 ```
 
@@ -1540,7 +1540,7 @@ repositorio es `origin`. Ahora que ha clonado su repositorio bifurcado, debe agr
 ¡commit! Un cambio que sugiero es agregar su nombre a `guestbook.md`. Vamos a
 hacer esto ahora:
 
-```{r, engine='bash', eval=FALSE}
+```
 echo "- Sean Kross" >> guestbook.md # ¡Obviamente agregue su nombre!
 cat guestbook.md
 ```
@@ -1553,7 +1553,7 @@ cat guestbook.md
 
 Ahora agreque, confirme, y suba sus cambios:
 
-```{r, engine='bash', eval=FALSE}
+```
 git add guestbook.md
 git commit -m "added my name to guestbook.md"
 git push
