@@ -39,7 +39,7 @@ gratis. Tome nota de la dirección de correo electrónico que usa y el nombre de
 
 Para ver si tiene instalado Git abra su terminal e ingrese lo siguiente:
 
-```{r, engine='bash'}
+```
 git --version
 ```
 
