@@ -1,0 +1,182 @@
+# Glosario
+
+## Terminología
+
+En este apartado se pretende proponer un glosario que ayude a aclarar algunos términos utilizados en Git y GitHub.
+
++ Branch: 
+
+Representa una línea independiente de desarrollo de un proyecto. Originalmente un proyecto se crea con un branch _master_ que representa la línea principal de sesarrollo. Si se desea adherir una nueva característica o arreglar un problema (issue), es conveniente crear un nuevo branch para no modificar la línea de desarrollo principal. En cualquier momento, puede concatenarse (merge) con la rama principal.
+
++ Centralized Workflow (Flujo de trabajo centralizado)
+
+El flujo de trabajo centralizado permite experimentar los beneficios de Git sin tener que adaptarse a un proceso completamente nuevo. También sirve como una transición amigable hacia flujos de trabajo más orientados a Git. Tienen un único servidor que contiene todos los archivos versionados y varios clientes que descargan los archivos desde ese lugar central.
+
++ Checksum
+
+Es la forma en que Git verifica mediante una suma de comprobación los directorios y archivos que están siendo rastreados antes de ser almacenados. Esto significa que es imposible cambiar los contenidos de cualquier archivo o directorio sin que Git lo sepa. Esta funcionalidad está integrada en Git al más bajo nivel y es parte integral de su filosofía. 
+
+El mecanismo que usa Git para generar esta suma de comprobación se conoce como hash SHA-1. Se trata de una cadena de 40 caracteres hexadecimales (0-9 y a-f), y se calcula en base a los contenidos del archivo o estructura de directorios. Un hash SHA-1 tiene esta pinta:
+
+`24b9da6552252987aa493b52f8696cd6d3b00373
+
++ Commited (Confirmado)
+
+Significa que los datos están almacenados de manera segura en tu base de datos local.
+
++ Modified (Modificado)
+
+Significa que se ha modificado el archivo pero todavía no se ha confirmado a la base de datos
+
++ Staged (Preparado)
+
+Significa que se ha marcado un archivo modificado en su versión actual para que vaya en la próxima confirmación.
+
+
+
++ Feature Branch Workflow (Flujo de trabajo característico de ramificaciones)
+
+Se basa en el flujo de trabajo centralizado al encapsular nuevas características en ramas dedicadas. Esto permite el uso de pull requests (solicitudes de extracción) como un medio para discutir cambios antes de que se integren al proyecto oficial.
+
++ Forking
+
+En lugar de utilizar un único repositorio del lado del servidor para actuar como la base de código "central", el forking le brinda a cada desarrollador un repositorio del lado del servidor. Esto significa que cada colaborador no tiene uno, sino dos repositorios Git: uno privado local y uno público del lado del servidor.
+
++ Git directory
+
+Directorio de Git. Es donde Git almacena los metadatos y la base de datos de objetos para el proyecto. Es la parte más importante de Git, y es lo que se copia cuando se clona un repositorio desde otro ordenador.
+
++ Gitflow Workflow (Flujo de trabajo de Git)
+
+El flujo de trabajo de Git simplifica el ciclo de lanzamiento mediante el uso de branches aisladas para el desarrollo de características, preparación de versiones y mantenimiento. Su modelo de ramificación estricta también le da una estructura muy necesaria a proyectos más grandes.
+
++ HEAD
+
+La forma en que Git se refiere a la instantánea actual. Internamente, el comando git checkout simplemente actualiza HEAD para apuntar al branch específico o hacer commit. Cuando apunta a un branch, Git no se queja, pero cuando revisa un commit, cambia a un estado de "HEAD desconectado".
+
++ Hook
+
+Un script que se ejecuta automáticamente cada vez que ocurre un evento en particular en un repositorio de Git. Los hooks le permiten personalizar el comportamiento interno de Git y desencadenar acciones personalizables en puntos clave del ciclo de vida de desarrollo.
+
++ Master (Maestro)
+
+La línea de desarrollo predeterminada. Cada vez que se crea un repositorio git, se crea un branch llamado "Master" y se convierte en la rama activa.
+
++ Pull Request (Solicitud de extracción)
+
+Es una función que facilita que los desarrolladores colaboren con Git. Proporciona una interfaz web fácil de usar para discutir los cambios propuestos antes de integrarlos en el proyecto oficial.
+
++ Repository (Repositorio)
+
+Una colección de commits, branches y tags para identificar los commits.
+
++ Snapchot (Instantánea)
+
+Una foto del aspecto de todos tus archivos en ese momento, y guarda una referencia a ese momento.
+
++ Staging area
+
+Área de preparación. Es un sencillo archivo, generalmente contenido en el directorio de Git, que almacena información acerca de lo que va a ir en la próxima confirmación. A veces se le denomina _índice_, pero se está convirtiendo en estándar el referirse a ella como el área de preparación.
+
++ Tag (Etiqueta)
+
+Una referencia típicamente utilizada para marcar un punto particular en la cadena de commit. A diferencia de un head, el tag no se actualiza mediante el comando commit.
+
++ Version Control (Control de versiones)
+
+Un sistema que registra cambios en un archivo o conjunto de archivos a lo largo del tiempo para que pueda recuperar versiones específicas más adelante.
+
++ Working directory
+
+Directorio de trabajo. Es una copia de una versión del proyecto. Estos archivos se sacan de la base de datos comprimida en el directorio de Git, y se colocan en disco para que se puedan usar o modificar.
+
++ Working Tree (Árbol de trabajo)
+
+El árbol de archivos reales extraídos, que normalmente contiene el contenido del árbol de commit de HEAD y cualquier cambio local que haya realizado pero que aún no le ha hecho commit.
+
+
+## Comandos
+
++ `git add`
+
+Mueve los cambios del directorio de trabajo al stage (área de ensayo). Esto le da la oportunidad de preparar una instantánea antes de hacerle commit con la historia oficial.
+
++ `git branch`
+
+Este comando es la herramienta de administración de propósito general del branch. Le permite crear entornos de desarrollo aislados dentro de un único repositorio.
+
++ `git checkout`
+
+Además de verificar commits antiguos y revisiones anteriores de archivos, git checkout también es el medio para navegar por los branches existentes. Combinado con los comandos básicos de Git, es una forma de trabajar en una línea particular de desarrollo.
+
++ `git clean`
+
+Elimina los archivos sin seguimiento del directorio de trabajo. Esta es la contrapartida lógica de git reset, que (típicamente) solo opera en archivos rastreados.
+
++ `git clone`
+
+Crea una copia de un repositorio existente de Git. La clonación es la forma más común para que los desarrolladores obtengan una copia de trabajo de un repositorio central.
+
++ `git commit`
+
+Toma la instantánea que está en staged y le hace commit con el historial del proyecto. Combinado con git add, este define el flujo de trabajo básico para todos los usuarios de Git.
+
++ `git commit --amend`
+
+Al pasar la etiqueta --amend a git, puede modificar el commit más reciente. Esto es muy útil cuando olvida hacer stage a un archivo u omite información importante del mensaje de confirmación.
+
++ `git config`
+
+Una forma conveniente de establecer las opciones de configuración para su instalación de Git. Normalmente solo necesitará usar esto inmediatamente después de instalar Git en una nueva máquina de desarrollo.
+
++ `git fetch`
+
+El fetch descarga un branch de otro repositorio, junto con todos sus commits y archivos asociados. Pero no intenta integrar nada en su repositorio local. Esto le da la oportunidad de inspeccionar los cambios antes de fusionarlos con su proyecto.
+
++ `git init`
+
+Inicializa un nuevo repositorio de Git. Si desea colocar un proyecto bajo control de versiones, este es el primer comando que necesita aprender.
+
++ `git log`
+
+Le permite explorar las revisiones previas de un proyecto. Proporciona varias opciones de formato para mostrar instantáneas a las que ya se les haya hecho commit.
+
++ `git merge`
+
+Una forma poderosa de integrar los cambios de los branches divergentes. Después de hacer fork al historial del proyecto con git branch, git merge le permite volver a armarlo.
+
++ `git pull`
+
+Pulling es la versión automatizada de git fetch. Descarga un branch de un repositorio remoto, y luego la fusiona inmediatamente con la rama actual. 
+
++ `git push`
+
+Pushing es lo contrario de fetching (con algunas advertencias). Le permite mover un branch local a otro repositorio, que sirve como una forma conveniente de publicar contribuciones. 
+
++ `git rebase`
+
+Rebasing le permite mover branches, lo que le ayuda a evitar confusiones de fusión innecesarias. La historia lineal resultante a menudo es mucho más fácil de entender y explorar.
+
++ `git rebase -i`
+
+La etiqueta -i se usa para comenzar una sesión de rebase interactiva. Esto le proporciona todos los beneficios de un rebase normal, pero le da la oportunidad de agregar, editar o eliminar commits en el camino.
+
++ `git reflog`
+
+Git realiza un seguimiento de las actualizaciones en la punta de los branches mediante un mecanismo llamado reflog. Esto le permite volver a los conjuntos de cambios aunque no estén referenciados mediante ningún branch o flag.
+
++ `git remote`
+
+Una herramienta conveniente para administrar conexiones remotas. En lugar de pasar la URL completa a los comandos fetch, pull y pull. Le permite usar un atajo más significativo.
+
++ `git reset`
+
+Deshace los cambios a los archivos en el directorio de trabajo. Resetting le permite limpiar o eliminar por completo los cambios que no se han enviado a un repositorio público.
+
++ `git revert`
+
+Deshace una instantánea a la que ya se le ha hecho commit. Cuando descubra un commit defectuoso, reverting es una forma segura y fácil de eliminarlo completamente de la base de código.
+
++ `git status`
+
+Muestra el estado del directorio de trabajo y la instantánea que está en stage. Querrá ejecutar esto junto con git add y git commit para ver exactamente lo que se incluye en la siguiente instantánea.
